@@ -25,6 +25,14 @@ input {
   padding: 0 15px;
 }
 
+.form-item select {
+    width: 100%;
+}
+select {
+    font-size: var(--font-s);
+    padding: 0 15px;
+}
+
 body {
   position: relative;
   font-family: "Alexandria", sans-serif;
