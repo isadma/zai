@@ -1292,7 +1292,6 @@ input[type="checkbox"]:checked+label:after {
 
 .user-info-item {
   font-size: var(--font-s);
-  max-width: 350px;
   align-items: center;
   margin-top: 20px;
 }
@@ -1301,6 +1300,7 @@ input[type="checkbox"]:checked+label:after {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin-bottom: 5px;
 }
 
 .edit {
@@ -1331,6 +1331,17 @@ input[type="checkbox"]:checked+label:after {
 .user-address {
   color: #707070;
   margin-top: 9px;
+  margin-bottom: 10px;
+}
+
+.user-address-actions{
+  display: flex;
+  justify-content: flex-end;
+  aligin-items: center;
+}
+
+.user-address-actions a{
+  margin-left: 10px;
 }
 
 .ml-6 {
@@ -2408,7 +2419,7 @@ input[type="checkbox"]:checked+label:after {
   width: 100%;
 }
 
-.review-body .user-info-item {
+.review-body{
   max-width: 400px;
 }
 
@@ -2731,19 +2742,18 @@ input[type="checkbox"]:checked+label:after {
 }
 
 .my__account-main .user-info-item {
-  max-height: 120px;
   overflow: hidden;
   transition: .2s;
   padding: 10px;
 }
 
-.my__account-main .user-info-item:not(.default-address):hover {
+/* .my__account-main .user-info-item:not(.default-address):hover {
   overflow: visible;
   min-height: calc(100% + 40px);
   z-index: 2;
   background-color: #fff;
   box-shadow: 0px 0px 11px -6px;
-}
+} */
 
 .my__account-main .user-info-item:not(.default-address):hover .address-bottom {
   opacity: 1;
