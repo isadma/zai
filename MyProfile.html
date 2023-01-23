@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zai Maison/Profile Overview</title>
+  <link rel="stylesheet" href="assets/style/style.css" />
+  <!-- <link rel="stylesheet" href="assets/style/jquery-ui.min.css"> -->
+</head>
+
+<body>
+  <div class="wrapper my__profile-header">
+    <header class="header header-black">
+      <a href="./index.html" class="logo">
+        <img src="./img/logo/logo-black.png" alt="" />
+      </a>
+
+      <nav class="nav">
+        <div class="nav-item">
+          <a class="" href="./index.html">HOME</a>
+        </div>
+        <div class="nav-item">
+          <a href="./categories.html">Categories</a>
+        </div>
+        <div class="nav-item">
+          <a href="">New</a>
+        </div>
+        <div class="nav-item">
+          <a href="">Art of living</a>
+        </div>
+        <div class="nav-item">
+          <a href="">World of zai</a>
+        </div>
+      </nav>
+      <div class="header-right">
+        <div class="header-search">
+          <img src="./img/header-black/search.svg" alt="search" />
+          <input type="text" placeholder="SEARCH ZAI" class="search-input" />
+        </div>
+        <div class="header-user">
+          <a href="wishlist.html">
+            <img src="./img/header-black/Icon material-favorite-border.svg" alt="favorite" />
+          </a>
+          <a href="./YourCart.html" class="shopping-bag active">
+            <div class="red-dot">
+              <span>0</span>
+            </div>
+            <img src="./img/header-black/shopping bag line.svg" alt="shopping bag" />
+          </a>
+
+          <div class="my-profile-img">
+            <img src="./img/header-black/profile-active.svg" alt="" />
+            <div class="dropdown-user-menu">
+              <a class="active" href="./MyProfile.html">Profile Overview</a>
+              <a href="./MyOrders.html">My orders</a>
+              <a href="./my-account.html">My account</a>
+              <a href="./address-book.html">Address Book</a>
+              <!-- <a href="./payment-methods.html">Payment methods</a> -->
+              <a class="logout" href="./login.html"><img class="logout-img" src="./img/icons/logout.svg"
+                  alt="" /><span>Sign
+                  out</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="hamburger-menu" class="hamburger-menu">
+        <div class="h-stick"></div>
+        <div class="h-stick"></div>
+        <div class="h-stick"></div>
+      </div>
+      <div id="header-modal" class="header-modal">
+        <div class="header-modal-body">
+          <div id="modal-close" class="modal-close">
+            <img src="./img/icons/close.svg" alt="" />
+          </div>
+          <div class="modal-nav">
+            <div class="header-search">
+              <img src="./img/header-black/search.svg" alt="search" />
+              <input type="text" placeholder="SEARCH ZAI" class="search-input" />
+            </div>
+            <div class="nav-item">
+              <a class="./index.html" href="./index.html">HOME</a>
+            </div>
+            <div class="nav-item">
+              <a href="./categories.html">Categories</a>
+            </div>
+            <div class="nav-item">
+              <a href="">New</a>
+            </div>
+            <div class="nav-item">
+              <a href="">Art of living</a>
+            </div>
+            <div class="nav-item">
+              <a href="">World of zai</a>
+            </div>
+            <a href="wishlist.html">
+              <img src="./img/header-black/Icon material-favorite-border.svg" alt="favorite" />
+              <div>Favorite</div>
+            </a>
+            <a href="./YourCart.html" class="shopping-bag active">
+              <div class="red-dot">
+                <span>0</span>
+              </div>
+              <img src="./img/header-black/shopping bag line.svg" alt="shopping bag" />
+              <div>Bag</div>
+            </a>
+
+            <div class="my-profile-dropdown">
+              <div class="my-profile-dropdown-btn">
+                <div class="left">
+                  <img src="./img/header-black/profile-active.svg" alt="" />
+                  <div class="active">Profile</div>
+                </div>
+                <img class="chevron-white chevron" class="nav-dropdown" src="./img/icons/chevron.svg" alt="" />
+              </div>
+              <div class="dropdown-menu-m">
+                <a class="active" href="./MyProfile.html">Profile Overview</a>
+                <a href="./MyOrders.html">My orders</a>
+                <a href="./my-account.html">My account</a>
+                <a href="./address-book.html">Address Book</a>
+                <!-- <a href="./payment-methods.html">Payment methods</a> -->
+                <a class="logout" href="./login.html"><img class="logout-img" src="./img/icons/logout.svg"
+                    alt="" /><span>Sign
+                    out</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <div class="myprofile-title  myprofile-title-carts wrapper">My Profile</div>
+  <main class="wrapper my__profile-main my__profile-main-carts">
+    <aside class="my__profile-aside">
+      <nav class="aside__nav">
+        <a href="./MyProfile.html" class="aside__nav-item active"><span class="stick"></span>Profile Overview</a>
+        <a href="./MyOrders.html" class="aside__nav-item"><span class="stick"></span>My Orders</a>
+        <a href="./my-account.html" class="aside__nav-item"><span class="stick"></span>My Account</a>
+        <a href="./address-book.html" class="aside__nav-item"><span class="stick"></span>Address Book</a>
+        <!-- <a href="./payment-methods.html" class="aside__nav-item"><span class="stick"></span>Payment methods -->
+        </a>
+      </nav>
+    </aside>
+    <div class="my__profile-body">
+      <div class="user-info-top">
+        <div class="user-info">
+          <div class="user-info-title">Basic Information</div>
+          <div class="user-info-item">
+            <div class="info-item">
+              <div class="user-name">John Mayer</div>
+              <a href="./my-account.html" class="edit">Edit</a>
+            </div>
+          </div>
+          <div class="user-info-item">
+            <div class="info-item">
+              <div class="user-email">johnmayer@gamil.com</div>
+              <a href="./my-account.html" class="edit">Edit</a>
+            </div>
+          </div>
+        </div>
+        <div class="user-info">
+          <div class="user-info-title">Security information</div>
+          <div class="user-info-item">
+            <div class="info-item">
+              <div class="user-password">
+                <span>Password :</span>
+                <span class="password">************</span>
+              </div>
+
+              <a href="./my-account.html" class="edit">Edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="user-info-bottom">
+        <div class="user-info">
+          <div class="user-info-title address-title">Default Address</div>
+        </div>
+        <div class="user-info">
+          <div class="user-info-title">Payment information</div>
+          <div class="pay-type">
+            <img src="./img/pay/card-1.png" alt="" class="pay-icon" />
+            <span>Debit or Credit Cards</span>
+          </div>
+          <div class="user-info-item numerated-user-info">
+            <span class="place-num">1</span>
+            <div class="info-item">
+              <div class="card-info">
+                <div>
+                  Card ending with:
+                  <span class="card-number">*********9008</span>
+                </div>
+                <div>
+                  Expiration Date: <span class="card-number">02/28</span>
+                </div>
+              </div>
+
+              <a href="" class="pay-card"><img src="./img/pay/card-2.png" alt="" /></a>
+            </div>
+          </div>
+          <div class="user-info-item numerated-user-info">
+            <span class="place-num">2</span>
+            <div class="info-item">
+              <div class="card-info">
+                <div>
+                  Card ending with:
+                  <span class="card-number">*********9008</span>
+                </div>
+                <div>
+                  Expiration Date: <span class="card-number">02/28</span>
+                </div>
+              </div>
+
+              <a href="" class="pay-card"><img src="./img/pay/card-3.png" alt="" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer my__profile-footer my__profile-footer-carts">
+    <div class="wrapper">
+      <div class="footer-left">
+        <div class="logo">
+          <img src="./img/logo/logo-m.png" alt="" />
+        </div>
+        <div class="copyright">All Rights Reserved @ zai maison <div class="year"></div>
+        </div>
+
+        <div class="followus">Follow us on</div>
+        <div class="social">
+          <div class="social-item">
+            <img src="./img/social/01.png" alt="" />
+          </div>
+          <div class="social-item">
+            <img src="./img/social/02.png" alt="" />
+          </div>
+          <div class="social-item">
+            <img src="./img/social/03.png" alt="" />
+          </div>
+          <div class="social-item">
+            <img src="./img/social/04.png" alt="" />
+          </div>
+          <div class="social-item">
+            <img src="./img/social/05.png" alt="" />
+          </div>
+          <div class="social-item">
+            <img src="./img/social/06.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="footer-list">
+          <div class="footer-list-item">
+            <a href="">Contact Us</a>
+          </div>
+          <div class="footer-list-item">
+            <a href="">Terms & Conditions</a>
+          </div>
+          <div class="footer-list-item">
+            <a href="">Privacy Policy</a>
+          </div>
+          <div class="footer-list-item">
+            <a href="">FAQs</a>
+          </div>
+          <div class="footer-list-item">
+            <a href="">Payment & Pricing</a>
+          </div>
+        </div>
+
+        <div class="footer-list">
+          <div class="footer-list-item">
+            <a href="">Contact Us</a>
+          </div>
+          <div class="footer-list-item">
+            <a href="">Sitemapp</a>
+          </div>
+          <div class="footer-list-item">
+            <a href="">Careers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- <script src="./assets/js/jquery.js"></script>
+    <script src="./assets/js/jquery-ui.min.js"></script> -->
+  <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
