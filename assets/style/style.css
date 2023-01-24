@@ -26,11 +26,12 @@ input {
 }
 
 .form-item select {
-    width: 100%;
+  width: 100%;
 }
+
 select {
-    font-size: var(--font-s);
-    padding: 0 15px;
+  font-size: var(--font-s);
+  padding: 0 15px;
 }
 
 body {
@@ -1342,13 +1343,13 @@ input[type="checkbox"]:checked+label:after {
   margin-bottom: 10px;
 }
 
-.user-address-actions{
+.user-address-actions {
   display: flex;
   justify-content: flex-end;
   aligin-items: center;
 }
 
-.user-address-actions a{
+.user-address-actions a {
   margin-left: 10px;
 }
 
@@ -2427,7 +2428,7 @@ input[type="checkbox"]:checked+label:after {
   width: 100%;
 }
 
-.review-body{
+.review-body {
   max-width: 400px;
 }
 
@@ -2719,12 +2720,6 @@ input[type="checkbox"]:checked+label:after {
   width: 100%;
 }
 
-.make-default {
-  height: 30px;
-  font-size: var(--font-s);
-  padding: 10px;
-}
-
 .address-bottom {
   display: flex;
   padding-top: 20px;
@@ -2732,21 +2727,6 @@ input[type="checkbox"]:checked+label:after {
   background-color: #fff;
   opacity: 0;
   transition: .2s;
-}
-
-.delete-address {
-  width: 30px;
-  height: 30px;
-  padding: 5px;
-  margin-left: 16px;
-}
-
-.delete-address:hover {
-  background-color: rgba(126, 126, 126, 0.183);
-}
-
-.delete-address img {
-  width: 100%;
 }
 
 .my__account-main .user-info-item {

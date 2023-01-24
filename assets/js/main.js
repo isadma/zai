@@ -7,9 +7,55 @@ const closeFilter = document.querySelector("#close-filter");
 const dropdown = document.querySelector(".my-profile-dropdown");
 const addToCartBtn = document.querySelector("#add-to-cart");
 const productImgs = document.querySelectorAll(".cloth-img");
+let totalPrice = 0;
+let cartList = [];
+let addedProducts = [];
+let wishlist = [];
+let addedToWishlist = [];
+const productPage = document.querySelector(".product");
+const categories = document.querySelector(".categories-body");
+const mainPage = document.querySelector(".clothes");
 const categoriesAsideItems = document.querySelectorAll(
   ".categories-aside-item-dropdown"
 );
+
+function addPrice(productDetails, empty) {
+  if (empty) {
+    let cartPrice = parseInt(productDetails.price)
+    localStorage.setItem('totalPrice', cartPrice)
+  } else {
+    let cartPrice = parseInt(productDetails.price)
+    totalPrice = localStorage.getItem('totalPrice')
+    totalPrice = Number(totalPrice) + cartPrice
+    localStorage.setItem('totalPrice', totalPrice)
+    totalPrice += productDetails.price
+  }
+
+}
+
+function addCart() {
+  let productDetails = {}
+  // * add product details to variable 
+  const product = document.querySelector(".product");
+  let chosenImg = product.querySelector(".chosen-product");
+  productDetails.img = chosenImg.querySelector(".active").src;
+
+  let clothColors = product.querySelector(".cloth-colors");
+  productDetails.color = clothColors.querySelector(".active").className;
+
+  let clothSizes = product.querySelector(".cloth-sizes");
+  productDetails.size = clothSizes.querySelector(".active").innerText;
+
+  productDetails.collection =
+    product.querySelector(".cloth-collection").innerText;
+  productDetails.name = product.querySelector(".cloth-name").innerText;
+  productDetails.price = product.querySelector(".cloth-price").innerText;
+  productDetails.description = product.querySelector(
+    ".cloth__description"
+  ).innerText;
+  return productDetails
+}
+// *----------------------------------- add preudoUserInfo to localStorage---------------------------------
 const pseudoUserInfo = {
   firstName: 'John',
   lastName: 'Mayer',
@@ -27,6 +73,9 @@ if (localStorage.getItem('pseudoUserInfo')) {
 } else {
   localStorage.setItem('pseudoUserInfo', JSON.stringify(pseudoUserInfo))
 }
+
+// * ------------------------------------------write cartQty------------------------------------------
+
 window.addEventListener('load', function (params) {
   if (this.localStorage.getItem('cartQty')) {
     for (let dot of document.querySelectorAll('.red-dot')) {
@@ -34,6 +83,8 @@ window.addEventListener('load', function (params) {
     }
   }
 })
+// *---------------------------- dropdown for categories page filter
+
 if (categoriesAsideItems) {
   for (let categoriesAsideItem of categoriesAsideItems) {
     categoriesAsideItem
@@ -53,14 +104,7 @@ if (categoriesAsideItems) {
       });
   }
 }
-let totalPrice = 0;
-let cartList = [];
-let addedProducts = [];
-let wishlist = [];
-let addedToWishlist = [];
-const productPage = document.querySelector(".product");
-const categories = document.querySelector(".categories-body");
-const mainPage = document.querySelector(".clothes");
+
 
 //    *----------------------------------collect information from the selected product
 
@@ -92,10 +136,11 @@ if (categories || mainPage) {
   }
 }
 
-//  *---------------------------------------------adding Cart 
+//  *---------------------------------------------adding product to cart---------------------------------------------- 
 
 if (addToCartBtn) {
   window.addEventListener('load', function name(params) {
+    // * take data from clicked Product
     let clickedProductDetails = JSON.parse(
       localStorage.getItem("clickedProductDetails")
     );
@@ -113,50 +158,33 @@ if (addToCartBtn) {
         clothColors[i].className = clickedProductDetails.colors[i];
       }
     }
-    addChosenProduct();
+    addChosenProductImg();
+    // * checking if item was added to cart
     if (JSON.parse(localStorage.getItem('addedProducts')).indexOf(document.querySelector('.cloth-name').innerText) + 1) {
       addToCartBtn.innerText = 'Added to cart'
       return
     }
+    // * checking if item was added to wishlist
     if (JSON.parse(localStorage.getItem('addedToWishlist')).indexOf(document.querySelector('.cloth-name').innerText) + 1) {
       this.document.querySelector('#add-to-wishlist').innerText = 'Added to Wishlist'
       return
     }
   })
-  let productDetails = {};
-  function addCart() {
-    const product = document.querySelector(".product");
 
-    let chosenImg = product.querySelector(".chosen-product");
-    productDetails.img = chosenImg.querySelector(".active").src;
+  // * ---------------------------------------add to cart
 
-    let clothColors = product.querySelector(".cloth-colors");
-    productDetails.color = clothColors.querySelector(".active").className;
-
-    let clothSizes = product.querySelector(".cloth-sizes");
-    productDetails.size = clothSizes.querySelector(".active").innerText;
-
-    productDetails.collection =
-      product.querySelector(".cloth-collection").innerText;
-    productDetails.name = product.querySelector(".cloth-name").innerText;
-    productDetails.price = product.querySelector(".cloth-price").innerText;
-    productDetails.description = product.querySelector(
-      ".cloth__description"
-    ).innerText;
-  }
   addToCartBtn.addEventListener("click", function () {
-    addCart()
-
+    // * collect data
+    let productDetails = addCart()
+    // * сheck if localstorage empty
     if (localStorage.getItem("addedProducts")) {
       addedProducts = JSON.parse(localStorage.getItem("addedProducts"));
       if (addedProducts.indexOf(productDetails.name) + 1) {
+        //  * if product already exists
         return;
       } else {
-        let cartPrice = parseInt(productDetails.price)
-        totalPrice = localStorage.getItem('totalPrice')
-        totalPrice = Number(totalPrice) + cartPrice
-        localStorage.setItem('totalPrice', totalPrice)
-        totalPrice += productDetails.price
+        addPrice(productDetails, false)
+        // * add cart to localstorage
         addedProducts.push(productDetails.name);
         localStorage.setItem("addedProducts", JSON.stringify(addedProducts));
         cartList = JSON.parse(localStorage.getItem('cartList'))
@@ -164,8 +192,9 @@ if (addToCartBtn) {
         localStorage.setItem("cartList", JSON.stringify(cartList));
       }
     } else {
-      let cartPrice = parseInt(productDetails.price)
-      localStorage.setItem('totalPrice', cartPrice)
+      // * if localstorage empty
+      addPrice(productDetails, true)
+      // * add cart to localstorage
       addedProducts.push(productDetails.name);
       cartList.push(productDetails);
       localStorage.setItem("addedProducts", JSON.stringify(addedProducts));
@@ -173,13 +202,18 @@ if (addToCartBtn) {
     }
 
     addToCartBtn.innerText = "Added to Cart";
+    // * increment cartQty
     for (let dot of document.querySelectorAll('.red-dot')) {
       dot.querySelector('span').innerText = Number(dot.querySelector('span').innerText) + 1
     }
     localStorage.setItem('cartQty', document.querySelector('.red-dot').querySelector('span').innerText)
   });
+
+
+  // * ---------------------------------------add to wishlist all the same
+
   document.querySelector('#add-to-wishlist').addEventListener('click', function () {
-    addCart()
+    let productDetails = addCart()
     if (localStorage.getItem("addedToWishlist")) {
       addedToWishlist = JSON.parse(localStorage.getItem("addedToWishlist"));
       if (addedToWishlist.indexOf(productDetails.name) + 1) {
@@ -202,9 +236,10 @@ if (addToCartBtn) {
 }
 
 const wishlistPage = document.querySelector('.wishlist')
-
+// * insert carts to wishlist page
 if (wishlistPage) {
   window.onload = () => {
+    // * take wishlist from localstorage
     let wishlist = JSON.parse(localStorage.getItem("wishlist"));
     if (wishlist) {
       if (wishlist.length == 0) {
@@ -212,6 +247,7 @@ if (wishlistPage) {
       } else {
         this.document.querySelector('.emptyWishlist').classList.add('hidden')
       }
+      // * add cart to page
       for (let cartDetailsItem of wishlist) {
         let youCartTitle = document.querySelector(".your__cart-title");
         let cart = `            <div class="cart-item">
@@ -255,6 +291,7 @@ if (wishlistPage) {
     } else {
       this.document.querySelector('.emptyWishlist').classList.remove('hidden')
     }
+    // * cartDeleteBtn
     const cartDeleteBtns = document.querySelectorAll('.cart-right-top')
     for (let cartDeleteBtn of cartDeleteBtns) {
       cartDeleteBtn.addEventListener('click', function (e) {
@@ -273,7 +310,7 @@ if (wishlistPage) {
         location.reload()
       })
     }
-
+    // * go to details btn
     for (let element of document.querySelectorAll('.wishlist-add-to-cart')) {
       element.addEventListener("click", function (e) {
         let clickedProductDetails = {};
@@ -305,6 +342,7 @@ if (wishlistPage) {
 const youCart = document.querySelector(".your__cart-main");
 
 if (youCart) {
+  // * same as wishlist
   window.onload = () => {
     let cartList = JSON.parse(localStorage.getItem("cartList"));
     if (cartList) {
@@ -354,6 +392,7 @@ if (youCart) {
 </div>`;
       youCartTitle.insertAdjacentHTML("afterend", cart);
     }
+    // * qty dec-inc functions
     const decList = document.querySelectorAll(".dec-btn");
     const incList = document.querySelectorAll(".inc-btn");
     if (incList) {
@@ -371,6 +410,7 @@ if (youCart) {
         });
       }
     }
+    // * delete btn
     const cartDeleteBtns = youCart.querySelectorAll('.cart-right-top')
     for (let cartDeleteBtn of cartDeleteBtns) {
       cartDeleteBtn.addEventListener('click', function (e) {
@@ -397,95 +437,14 @@ if (youCart) {
     }
   };
 }
-const youOrder = document.querySelector('.my__orders-body')
-
-if (youOrder) {
-  window.addEventListener('load', function () {
-    let cartList = JSON.parse(this.localStorage.getItem('cartList'))
-    if (cartList) {
-      if (cartList.length == 0) {
-        this.document.querySelector('.my__orders-main').classList.add('notOrder-wrapper')
-        this.document.querySelector('.notOrder').classList.remove('hidden')
-      } else {
-        this.document.querySelector('.my__orders-main').classList.remove('notOrder-wrapper')
-        this.document.querySelector('.notOrder').classList.add('hidden')
-      }
-    } else {
-      this.document.querySelector('.my__orders-main').classList.add('notOrder-wrapper')
-      this.document.querySelector('.notOrder').classList.remove('hidden')
-    }
-    for (let cartDetailsItem of cartList) {
-      let cart = `   <div class="my__order-item">
-      <img src="${cartDetailsItem.img}" class="order-img" alt="Product Image" />
-      <div class="order-info">
-        <div class="order-top">
-          <img src="${cartDetailsItem.img}" class="order-img-mobile" alt="Product Image" />
-          <div class="order-top-left">
-            <div class="order-name">
-              <div class="">
-                <div class="cloth-collection">${cartDetailsItem.collection}</div>
-                <div class="cloth-name">${cartDetailsItem.name}</div>
-              </div>
-              <div class="">
-                <div class="order-num">#001</div>
-                <div class="order-id">IDL7761899</div>
-              </div>
-            </div>
-            <div class="order-address">
-              <div class="delivery-title">Delivery to</div>
-              <div class="user-address">
-                Apt 3, Floor 2, Building 3, Block A, Street Salama, Kuwait
-                City Kuwait
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="order-bottom">
-          <div class="order-bottom-left">
-            <div class="order-quantity">Quantity: <span class="dec-btn qty-btn">-</span><span id="qty">1</span><span
-                class="inc-btn qty-btn">+</span></div>
-            <div class="order-size">
-              <div>Size:</div>
-              <div class="size active">${cartDetailsItem.size}</div>
-            </div>
-            <div class="order-color">
-              <div>Color Selected:</div>
-              <div class="${cartDetailsItem.color}"></div>
-            </div>
-          </div>
-          <div class="order-price">
-            <div class="cloth-price">${cartDetailsItem.price}</div>
-          </div>
-        </div>
-      </div>
-    </div>`
-      youOrder.insertAdjacentHTML('afterbegin', cart)
-      const decList = document.querySelectorAll(".dec-btn");
-      const incList = document.querySelectorAll(".inc-btn");
-      if (incList) {
-        for (let inc of incList) {
-          inc.addEventListener("click", function () {
-            inc.previousSibling.innerText =
-              Number(inc.previousSibling.innerText) + 1;
-          });
-        }
-        for (let dec of decList) {
-          dec.addEventListener("click", function () {
-            if (dec.nextSibling.innerText > 1) {
-              dec.nextSibling.innerText -= 1;
-            }
-          });
-        }
-      }
-    }
-  })
-}
 
 const reviewBody = document.querySelector('.review-body')
-
+// * add cart to order review page
 if (reviewBody) {
   window.addEventListener('load', function () {
+    // * take carts from localstorage
     let cartList = JSON.parse(this.localStorage.getItem('cartList'))
+    // * add them to page
     for (let cartDetailsItem of cartList) {
       let cart = `<div class="cart-item">
       <div class="basic-info">
@@ -536,10 +495,13 @@ if (reviewBody) {
         }
       }
     }
+
+    // * add user info to page
     const checkInfo = JSON.parse(this.localStorage.getItem('checkInfo'))
     reviewBody.querySelector('.user-name').innerText = checkInfo.userName
     reviewBody.querySelector('.user-address').innerText = checkInfo.userAddress
     const paymentInfo = this.document.querySelector('.payment-info')
+    // * if payment type credit card add form
     if (checkInfo.paymentType == 'debit-cc') {
       const cardDetails = `<div class="user-info-title">Card details</div>
         <div class="user-info-item">
@@ -577,6 +539,7 @@ const confirmationBodyBottom = document.querySelector('.confirmation-body-bottom
 
 if (confirmationBodyBottom) {
   window.addEventListener('load', function () {
+    // * add card to order confirmation page
     let cartList = JSON.parse(this.localStorage.getItem('cartList'))
     for (let cartDetailsItem of cartList) {
       let cart = `<div class="confirmation-order-item">
@@ -619,7 +582,7 @@ if (confirmationBodyBottom) {
   })
 
 }
-// *---------------------------------------calc summary
+// *---------------------------------------calc summary--------------------
 const summary = document.querySelector('.summary')
 
 if (summary) {
@@ -650,7 +613,9 @@ if (incList) {
     });
   }
 }
-function addChosenProduct() {
+
+// * add chosen products img to page in product details page
+function addChosenProductImg() {
   const chooseDress = document.querySelector(".choose-dress");
   let chosenDressBox = document.querySelector(".chosen-product");
   let chosenDress;
@@ -661,7 +626,7 @@ function addChosenProduct() {
     chosenDressBox.querySelector(".active").classList.remove("dress");
   }
 }
-addChosenProduct();
+addChosenProductImg();
 
 // * ----------------------------- dropdowns
 
@@ -713,7 +678,7 @@ for (let checkbox of checkboxes) {
       }
       e.target.closest(".check-item").classList.add("active");
     }
-    addChosenProduct();
+    addChosenProductImg();
   });
 }
 
@@ -734,47 +699,54 @@ const addNewAddress = document.querySelector('.add__address-body')
 if (myAccMain) {
   window.addEventListener('load', function () {
     userInfo = JSON.parse(this.localStorage.getItem('pseudoUserInfo'));
+    // * add addresses to page
     if (userInfo.addresses) {
 
       if (userInfo.addresses.length > 0) {
         userInfo.addresses.forEach((addressDetails, index) => {
           let address;
           if (addressDetails[10]) {
-            address = `<div class="box-for-shadow">
-        <div class="user-info-item">
-            <div class="info-item">
-                <div class="user-name ml-6">${addressDetails[0]} ${addressDetails[1]} (Default)</div>
-    
-            </div>
-            <div class="user-address">
-                Apt ${addressDetails[8]}, Floor ${addressDetails[7]}, Building ${addressDetails[6]}, Block ${addressDetails[5]}, Street ${addressDetails[4]}, ${addressDetails[3]} City, ${addressDetails[2]}
-            </div>
-            <div class="address-bottom">
-                <button class="make-default btn btn-black">Make Default</button>
-                <button class="delete-address btn btn-white"><img class="${index}" src="./img/icons/close.svg"
-                        alt=""></button>
-            </div>
+            address = `<div class="user-info-item">
+        <div class="info-item">
+            <div class="user-name">${addressDetails[0]} ${addressDetails[1]} (Default)</div>
         </div>
-        </div>`
+        <div class="user-address">
+            ${addressDetails[9]}
+        </div>
+        <div class="user-address">
+      Apt  ${addressDetails[8]}, Floor ${addressDetails[7]}, Building ${addressDetails[6]}, Block ${addressDetails[5]}, Street ${addressDetails[4]}
+        </div>
+        <div class="user-address">
+        ${addressDetails[3]}, ${addressDetails[2]}
+        </div>
+        <div class="user-address-actions">
+          <a class="make-default edit">Make default</a>
+          <a href="./my-account.html" class="edit">Edit</a>
+          <a class="delete-address edit" id="${index}" >Delete</a>
+        </div>
+    </div>`
           } else {
-            address = `<div class="box-for-shadow">
-        <div class="user-info-item">
+            address = `<div class="user-info-item">
             <div class="info-item">
-                <div class="user-name ml-6">${addressDetails[0]} ${addressDetails[1]}</div>
-    
+                <div class="user-name">${addressDetails[0]} ${addressDetails[1]}</div>
             </div>
             <div class="user-address">
-                Apt ${addressDetails[8]}, Floor ${addressDetails[7]}, Building ${addressDetails[6]}, Block ${addressDetails[5]}, Street ${addressDetails[4]}, ${addressDetails[3]} City, ${addressDetails[2]}
+                ${addressDetails[9]}
             </div>
-            <div class="address-bottom">
-                <button class="make-default btn btn-black">Make Default</button>
-                <button class="delete-address btn btn-white"><img class="${index}" src="./img/icons/close.svg"
-                        alt=""></button>
+            <div class="user-address">
+          Apt  ${addressDetails[8]}, Floor ${addressDetails[7]}, Building ${addressDetails[6]}, Block ${addressDetails[5]}, Street ${addressDetails[4]}
             </div>
-        </div>
+            <div class="user-address">
+            ${addressDetails[3]}, ${addressDetails[2]}
+            </div>
+            <div class="user-address-actions">
+              <a class="make-default edit">Make default</a>
+              <a href="./my-account.html" class="edit">Edit</a>
+              <a class="delete-address edit" id="${index}" >Delete</a>
+            </div>
         </div>`
           }
-
+          // * add addresses to address book page
           myAccMain.querySelector('.address-box').insertAdjacentHTML('beforeend', address)
         })
       }
@@ -787,8 +759,9 @@ if (myAccMain) {
     const elements = myAccMain.querySelectorAll('.delete-address');
 
     elements.forEach(element => element.addEventListener("click", event => {
+      // * delete address
       let userInfo = JSON.parse(this.localStorage.getItem('pseudoUserInfo'))
-      let deleteIndex = Number(element.querySelector('img').className)
+      let deleteIndex = element.id
       userInfo.addresses.splice(deleteIndex, 1)
       this.localStorage.setItem('pseudoUserInfo', JSON.stringify(userInfo))
       this.location.reload()
@@ -797,10 +770,9 @@ if (myAccMain) {
     const makeDefaultBtns = myAccMain.querySelectorAll('.make-default');
 
     makeDefaultBtns.forEach(element => element.addEventListener("click", event => {
+      // * make default
       let userInfo = JSON.parse(this.localStorage.getItem('pseudoUserInfo'))
-
-      let index = Number(element.closest('.user-info-item').querySelector('img').className)
-
+      let index = Number(element.closest('.user-info-item').querySelector('.delete-address').id)
       let a = userInfo.addresses[index];
       userInfo.addresses[0][10] = false
       a[10] = true
@@ -814,18 +786,21 @@ if (myAccMain) {
 }
 
 if (myAccMain || addNewAddress) {
+  // * add new address
   document.querySelector('.save-address').addEventListener('click', function () {
+    // * collect address info from form
     let addressDetails = []
     for (let input of document.querySelectorAll('.block-white')) {
       addressDetails.push(input.value)
     }
+    // * take available addresses
     userInfo = JSON.parse(localStorage.getItem('pseudoUserInfo'))
-
     if (userInfo && userInfo.addresses) {
       userInfo.addresses.push(addressDetails)
       localStorage.setItem('pseudoUserInfo', JSON.stringify(userInfo))
 
     }
+    // * if there are no added addresses yet
     else {
       let allAddresses = []
       allAddresses.push(addressDetails)
@@ -963,46 +938,4 @@ if (paymentList) {
 
   })
 }
-
-// const cartDropdownBtn = document.querySelector('.cart-dropdown-btn')
-
-// function toggleDropdown(selectbtn, openElement) {
-
-//   $('body').on('click', selectbtn, function (e) {
-//     e.preventDefault();
-
-//     var $this = $(this),
-//       wrapp = $this.parents('body'),
-//       wrapMask = $('<div / >').addClass('closeMask'),
-//       cartDropdown = $(openElement);
-
-//     if (!(cartDropdown).hasClass('open')) {
-//       wrapp.addClass('open');
-//       cartDropdown.addClass('open');
-//       cartDropdown.parent().append(wrapMask);
-//       wrapp.css({
-//         'overflow': 'hidden'
-
-//       });
-
-//     } else {
-//       removeSideMenu();
-//     }
-
-//     function removeSideMenu() {
-//       wrapp.removeAttr('style');
-//       wrapp.removeClass('open').find('.closeMask').remove();
-//       cartDropdown.removeClass('open');
-//     }
-
-//     $('.sidebar-close, .closeMask').on('click', function () {
-//       removeSideMenu();
-//     });
-
-//   });
-// }
-
-// cartDropdownBtn.addEventListener('click', () => {
-//   toggleDropdown(cartDropdownBtn, document.querySelector('#cart-dropdown'))
-// })
 
