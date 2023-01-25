@@ -202,6 +202,13 @@ if (addToCartBtn) {
     }
 
     addToCartBtn.innerText = "Added to Cart";
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Product added to Cart',
+      showConfirmButton: false,
+      timer: 1500
+    })
     // * increment cartQty
     for (let dot of document.querySelectorAll('.red-dot')) {
       dot.querySelector('span').innerText = Number(dot.querySelector('span').innerText) + 1
@@ -231,6 +238,13 @@ if (addToCartBtn) {
       localStorage.setItem("addedToWishlist", JSON.stringify(addedToWishlist));
       localStorage.setItem("wishlist", JSON.stringify(wishlist));
     }
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Product added to Wishlist',
+      showConfirmButton: false,
+      timer: 1500
+    })
     document.querySelector('#add-to-wishlist').innerText = "Added to Wishlist";
   })
 }
@@ -784,21 +798,29 @@ if (myAccMain) {
     }));
   })
 }
-
+// * ---------------------------------------------add new address
 if (myAccMain || addNewAddress) {
   // * add new address
-  document.querySelector('.save-address').addEventListener('click', function () {
+  document.querySelector('.save-address').addEventListener('click', function (e) {
+    e.preventDefault()
     // * collect address info from form
     let addressDetails = []
     for (let input of document.querySelectorAll('.block-white')) {
-      addressDetails.push(input.value)
+      if (input.value == '') {
+        Swal.fire({
+          icon: 'error',
+          text: 'Fill in all the fields!',
+        })
+        return
+      } else {
+        addressDetails.push(input.value)
+      }
     }
     // * take available addresses
     userInfo = JSON.parse(localStorage.getItem('pseudoUserInfo'))
     if (userInfo && userInfo.addresses) {
       userInfo.addresses.push(addressDetails)
       localStorage.setItem('pseudoUserInfo', JSON.stringify(userInfo))
-
     }
     // * if there are no added addresses yet
     else {
@@ -806,6 +828,12 @@ if (myAccMain || addNewAddress) {
       allAddresses.push(addressDetails)
       pseudoUserInfo.addresses = allAddresses
       localStorage.setItem('pseudoUserInfo', JSON.stringify(pseudoUserInfo))
+    }
+    if (myAccMain) {
+      location.reload()
+    }
+    if (addNewAddress) {
+      location.assign('./checkoutAddress.html')
     }
   })
 }
@@ -898,13 +926,23 @@ if (checkoutAddressList) {
 // * collect checkout info
 
 if (checkoutAddressList) {
-  document.querySelector('.select-address').addEventListener('click', function () {
-    const chosenAddressBlock = checkoutAddressList.querySelector('.active').closest('.checkout-list-item')
-    const checkInfo = {}
+  document.querySelector('.select-address').addEventListener('click', function (e) {
+    e.preventDefault()
+    if (checkoutAddressList.querySelector('.active')) {
+      const chosenAddressBlock = checkoutAddressList.querySelector('.active').closest('.checkout-list-item')
 
-    checkInfo.userName = chosenAddressBlock.querySelector('.user-name').innerText
-    checkInfo.userAddress = chosenAddressBlock.querySelector('.user-address').innerText
-    localStorage.setItem('checkInfo', JSON.stringify(checkInfo))
+      const checkInfo = {}
+
+      checkInfo.userName = chosenAddressBlock.querySelector('.user-name').innerText
+      checkInfo.userAddress = chosenAddressBlock.querySelector('.user-address').innerText
+      localStorage.setItem('checkInfo', JSON.stringify(checkInfo))
+      location.assign('./payment.html')
+    } else {
+      Swal.fire({
+        title: 'you must select an address',
+      })
+      return
+    }
   })
 }
 
@@ -926,16 +964,31 @@ if (paymentList) {
       }
     })
   }
-  document.querySelector('.select-payment').addEventListener('click', function () {
-    if (checkInfo.paymentType == 'debit-cc') {
-      checkInfo.cardData = []
-      for (let input of document.querySelector('.cart__details-form').querySelectorAll('.block-white')) {
-        checkInfo.cardData.push(input.value)
+  document.querySelector('.select-payment').addEventListener('click', function (e) {
+    if (checkInfo.paymentType) {
+      if (checkInfo.paymentType == 'debit-cc') {
+        checkInfo.cardData = []
+        for (let input of document.querySelector('.cart__details-form').querySelectorAll('.block-white')) {
+          if (input.value == '') {
+            e.preventDefault()
+            Swal.fire({
+              icon: 'error',
+              text: 'Fill in all the Fields',
+            })
+            return
+          }
+          checkInfo.cardData.push(input.value)
+        }
+
       }
+      localStorage.setItem('checkInfo', JSON.stringify(checkInfo))
 
+    } else {
+      e.preventDefault()
+      Swal.fire({
+        title: 'you must select payment method',
+      })
     }
-    localStorage.setItem('checkInfo', JSON.stringify(checkInfo))
-
   })
 }
 
