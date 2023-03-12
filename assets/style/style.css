@@ -692,7 +692,8 @@ input[type="checkbox"]:checked+label:after {
 }
 
 .cloth-colors .active {
-  border: 4px solid var(--black);
+    border: 4px solid var(--black);
+    padding: 2px;
 }
 
 .cloth-colors>*:not(:last-child) {
