@@ -1,192 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zai Maison/Store</title>
+    <link rel="stylesheet" href="assets/style/style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zai Maison/Store</title>
-  <link rel="stylesheet" href="assets/style/style.css" />
-  <!-- <link rel="stylesheet" href="assets/style/jquery-ui.min.css"> -->
-</head>
+  <body>
+    <div class="wrapper">
+      <header class="header header-black">
+        <a href="./index.html" class="logo">
+          <img src="./img/logo/logo-black.png" alt="" />
+        </a>
 
-<body>
-  <div class="wrapper">
-    <header class="header header-black">
-      <a href="./index.html" class="logo">
-        <img src="./img/logo/logo-black.png" alt="" />
-      </a>
-
-      <nav class="nav">
-        <div class="nav-item">
-          <a class="" href="./index.html">HOME</a>
-        </div>
-        <div class="nav-item">
-          <a class="active" href="./categories.html">Categories</a>
-        </div>
-        <div class="nav-item">
-          <a href="">New</a>
-        </div>
-        <div class="nav-item">
-          <a href="">Art of living</a>
-        </div>
-        <div class="nav-item">
-          <a href="">World of zai</a>
-        </div>
-      </nav>
-      <div class="header-right">
-        <div class="header-search">
-          <img src="./img/header-black/search.svg" alt="search" />
-          <input type="text" placeholder="SEARCH ZAI" class="search-input" />
-        </div>
-        <div class="header-user">
-          <a href="wishlist.html">
-            <img src="./img/header-black/Icon material-favorite-border.svg" alt="favorite" />
-          </a>
-          <a href="./YourCart.html" class="shopping-bag active">
-            <div class="red-dot">
-              <span>0</span>
-            </div>
-            <img src="./img/header-black/shopping bag line.svg" alt="shopping bag" />
-          </a>
-
-          <div class="my-profile-img">
-            <img src="./img/header-black/83c91ea82ef37f26e03b1f092a1eb3bd.svg" alt="" />
-            <div class="dropdown-user-menu">
-              <a href="./MyProfile.html">Profile Overview</a>
-              <a href="./MyOrders.html">My orders</a>
-              <a href="./my-account.html">My account</a>
-              <a href="./address-book.html">Address Book</a>
-              <!-- <a href="./payment-methods.html">Payment methods</a> -->
-              <a class="logout" href="./login.html"><img class="logout-img" src="./img/icons/logout.svg"
-                  alt=""><span>Sign
-                  out</span></a>
-            </div>
+        <nav class="nav">
+          <div class="nav-item">
+            <a class="" href="./index.html">HOME</a>
           </div>
-        </div>
-      </div>
-      <div id="hamburger-menu" class="hamburger-menu">
-        <div class="h-stick"></div>
-        <div class="h-stick"></div>
-        <div class="h-stick"></div>
-      </div>
-      <div id="header-modal" class="header-modal">
-        <div class="header-modal-body">
-          <div id="modal-close" class="modal-close">
-            <img src="./img/icons/close.svg" alt="" />
+          <div class="nav-item">
+            <a class="active" href="./categories.html">Categories</a>
           </div>
-          <div class="modal-nav">
-            <div class="header-search">
-              <img src="./img/header-black/search.svg" alt="search" />
-              <input type="text" placeholder="SEARCH ZAI" class="search-input" />
-            </div>
-            <div class="nav-item">
-              <a class="./index.html" href="./index.html">HOME</a>
-            </div>
-            <div class="nav-item">
-              <a class="active" href="./categories.html">Categories</a>
-            </div>
-            <div class="nav-item">
-              <a href="">New</a>
-            </div>
-            <div class="nav-item">
-              <a href="">Art of living</a>
-            </div>
-            <div class="nav-item">
-              <a href="">World of zai</a>
-            </div>
+          <div class="nav-item">
+            <a href="">New</a>
+          </div>
+          <div class="nav-item">
+            <a href="">Art of living</a>
+          </div>
+          <div class="nav-item">
+            <a href="">World of zai</a>
+          </div>
+        </nav>
+        <div class="header-right">
+          <div class="header-search">
+            <img src="./img/header-black/search.svg" alt="search" />
+            <input type="text" placeholder="SEARCH ZAI" class="search-input" />
+          </div>
+          <div class="header-user">
             <a href="wishlist.html">
               <img src="./img/header-black/Icon material-favorite-border.svg" alt="favorite" />
-              <div>Favorite</div>
             </a>
             <a href="./YourCart.html" class="shopping-bag active">
               <div class="red-dot">
                 <span>0</span>
               </div>
               <img src="./img/header-black/shopping bag line.svg" alt="shopping bag" />
-              <div>Bag</div>
             </a>
 
-
-            <div class="my-profile-dropdown">
-              <div class="my-profile-dropdown-btn">
-                <div class="left">
-                  <img src="./img/header-black/83c91ea82ef37f26e03b1f092a1eb3bd.svg" alt="" />
-                  <div class="active">Profile</div>
-                </div>
-                <img class="chevron-white chevron" class="nav-dropdown" src="./img/icons/chevron.svg" alt="" />
-              </div>
-              <div class="dropdown-menu-m">
+            <div class="my-profile-img">
+              <img src="./img/header-black/83c91ea82ef37f26e03b1f092a1eb3bd.svg" alt="" />
+              <div class="dropdown-user-menu">
                 <a href="./MyProfile.html">Profile Overview</a>
                 <a href="./MyOrders.html">My orders</a>
                 <a href="./my-account.html">My account</a>
                 <a href="./address-book.html">Address Book</a>
                 <!-- <a href="./payment-methods.html">Payment methods</a> -->
-                <a class="logout" href="./login.html"><img class="logout-img" src="./img/icons/logout.svg"
-                    alt=""><span>Sign
-                    out</span></a>
+                <a class="logout" href="./login.html"
+                  ><img class="logout-img" src="./img/icons/logout.svg" alt="" /><span
+                    >Sign out</span
+                  ></a
+                >
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </header>
-  </div>
-  <div class="wrapper categories-top-wrapper">
-    <div class="categories-top">
-      <h1 class="categories-title">Categories</h1>
-      <div class="categories-subtitle">
-        Explore latest Autumn & winter 23 Collections at our stores
-      </div>
+        <div id="hamburger-menu" class="hamburger-menu">
+          <div class="h-stick"></div>
+          <div class="h-stick"></div>
+          <div class="h-stick"></div>
+        </div>
+        <div id="header-modal" class="header-modal">
+          <div class="header-modal-body">
+            <div id="modal-close" class="modal-close">
+              <img src="./img/icons/close.svg" alt="" />
+            </div>
+            <div class="modal-nav">
+              <div class="header-search">
+                <img src="./img/header-black/search.svg" alt="search" />
+                <input type="text" placeholder="SEARCH ZAI" class="search-input" />
+              </div>
+              <div class="nav-item">
+                <a class="./index.html" href="./index.html">HOME</a>
+              </div>
+              <div class="nav-item">
+                <a class="active" href="./categories.html">Categories</a>
+              </div>
+              <div class="nav-item">
+                <a href="">New</a>
+              </div>
+              <div class="nav-item">
+                <a href="">Art of living</a>
+              </div>
+              <div class="nav-item">
+                <a href="">World of zai</a>
+              </div>
+              <a href="wishlist.html">
+                <img src="./img/header-black/Icon material-favorite-border.svg" alt="favorite" />
+                <div>Favorite</div>
+              </a>
+              <a href="./YourCart.html" class="shopping-bag active">
+                <div class="red-dot">
+                  <span>0</span>
+                </div>
+                <img src="./img/header-black/shopping bag line.svg" alt="shopping bag" />
+                <div>Bag</div>
+              </a>
 
-      <img src="./img/categories/categories-bg.png" alt="" class="ibg categories-main-bg" />
+              <div class="my-profile-dropdown">
+                <div class="my-profile-dropdown-btn">
+                  <div class="left">
+                    <img src="./img/header-black/83c91ea82ef37f26e03b1f092a1eb3bd.svg" alt="" />
+                    <div class="active">Profile</div>
+                  </div>
+                  <img
+                    class="chevron-white chevron"
+                    class="nav-dropdown"
+                    src="./img/icons/chevron.svg"
+                    alt=""
+                  />
+                </div>
+                <div class="dropdown-menu-m">
+                  <a href="./MyProfile.html">Profile Overview</a>
+                  <a href="./MyOrders.html">My orders</a>
+                  <a href="./my-account.html">My account</a>
+                  <a href="./address-book.html">Address Book</a>
+                  <!-- <a href="./payment-methods.html">Payment methods</a> -->
+                  <a class="logout" href="./login.html"
+                    ><img class="logout-img" src="./img/icons/logout.svg" alt="" /><span
+                      >Sign out</span
+                    ></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
     </div>
-  </div>
-  <div class="wrapper">
-    <div class="filter">
-      <nav class="nav">
-        <div class="nav-item">
-          <a class="" href="">New In</a>
+    <div class="wrapper categories-top-wrapper">
+      <div class="categories-top">
+        <h1 class="categories-title">Categories</h1>
+        <div class="categories-subtitle">
+          Explore latest Autumn & winter 23 Collections at our stores
         </div>
-        <div class="nav-item">
-          <a class="active" href="">Clothing</a>
-        </div>
-        <div class="nav-item">
-          <a href="">Shoes</a>
-        </div>
-        <div class="nav-item">
-          <a href="">Gift</a>
-        </div>
-        <div class="nav-item">
-          <a href="">Summer Collections</a>
-        </div>
-        <div class="nav-item">
-          <a href="">Sales</a>
-        </div>
-      </nav>
-      <div class="filter-search">
-        <input type="text" placeholder="Search Categories" class="filter-input" />
-        <div id="go-filter" class="go-filter"><img src="./img/icons/filter.svg" alt="" /></div>
 
+        <img src="./img/categories/categories-bg.png" alt="" class="ibg categories-main-bg" />
       </div>
     </div>
-  </div>
-
-  <script>
-    var slider = document.getElementById('myRange');
-    var output = document.getElementById('demo');
-    output.innerHTML = slider.value; // Display the default slider value
-
-    // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function () {
-      output.innerHTML = this.value;
-    };
-  </script>
-
-  <div class="categories-body">
     <div class="wrapper">
-      <div id="modal-filter" class="modal-filter">
-        <div id="close-filter" class="close-filter"><img src="./img/icons/close.svg" alt="" /></div>
+      <div class="filter">
+        <nav class="nav">
+          <div class="nav-item">
+            <a class="" href="">New In</a>
+          </div>
+          <div class="nav-item">
+            <a class="active" href="">Clothing</a>
+          </div>
+          <div class="nav-item">
+            <a href="">Shoes</a>
+          </div>
+          <div class="nav-item">
+            <a href="">Gift</a>
+          </div>
+          <div class="nav-item">
+            <a href="">Summer Collections</a>
+          </div>
+          <div class="nav-item">
+            <a href="">Sales</a>
+          </div>
+        </nav>
+        <div class="filter-search">
+          <input type="text" placeholder="Search Categories" class="filter-input" />
+          <div id="go-filter" class="go-filter">
+            <img src="./img/icons/filter.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <script>
+      var slider = document.getElementById("myRange");
+      var output = document.getElementById("demo");
+      output.innerHTML = slider.value; // Display the default slider value
+
+      // Update the current slider value (each time you drag the slider handle)
+      slider.oninput = function () {
+        output.innerHTML = this.value;
+      };
+    </script> -->
+    <div class="categories-body">
+      <div class="wrapper">
+        <div id="modal-filter" class="modal-filter">
+          <div id="close-filter" class="close-filter">
+            <img src="./img/icons/close.svg" alt="" />
+          </div>
+          <aside class="categories-aside">
+            <div class="categories-aside-item categories-aside-item-dropdown">
+              <div class="categories-aside-item-title">
+                <span>Filter by</span>
+                <img src="./img/icons/chevron.svg" alt="" />
+              </div>
+              <div class="filter-category filter-category-dropdown">
+                <div class="title">
+                  <div>Clothing</div>
+                  <img src="./img/icons/chevron.svg" alt="" />
+                </div>
+                <div class="aside-clothes">
+                  <div class="cloth active">
+                    <span>T-Shirts</span>
+                    <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
+                  </div>
+                  <div class="cloth">
+                    <span> Jackets</span>
+                    <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
+                  </div>
+                  <div class="cloth">
+                    <span>Knitwear</span>
+                    <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
+                  </div>
+                  <div class="cloth">
+                    <span>Sweaters</span>
+                    <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
+                  </div>
+                  <div class="cloth">
+                    <span> Shirts</span>
+                    <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
+                  </div>
+                  <div class="cloth">
+                    <span> Pants</span>
+                    <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
+                  </div>
+                  <div class="cloth">
+                    <span> Denim</span>
+                    <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
+                  </div>
+                </div>
+              </div>
+              <div class="filter-category">
+                <div class="title">Shoes</div>
+              </div>
+              <div class="filter-category">
+                <div class="title">New</div>
+              </div>
+              <div class="filter-category">
+                <div class="title">Accessories</div>
+              </div>
+              <div class="filter-category">
+                <div class="title">Bags</div>
+              </div>
+              <div class="filter-category">
+                <div class="title">Gifts</div>
+              </div>
+              <div class="filter-category">
+                <div class="title red">Sale</div>
+              </div>
+            </div>
+            <div class="categories-aside-item">
+              <div class="categories-aside-item-title">
+                <span>Sort by</span>
+              </div>
+              <div class="filter-category">
+                <div class="title">Newest</div>
+              </div>
+              <div class="filter-category">
+                <div class="title">Oldest</div>
+              </div>
+            </div>
+            <div class="categories-aside-item">
+              <div class="categories-aside-item-title">
+                <span>Price</span>
+              </div>
+              <div class="price-title">Select range</div>
+              <div class="price-range">
+                <input placeholder="From" type="text" class="from-input" />
+                <input placeholder="To" type="text" class="to-input" />
+              </div>
+
+              <!-- <div class="slidecontainer">
+              <input type="range" min="1" max="100" value="0" class="slider" id="myRange" />
+            </div> -->
+            </div>
+          </aside>
+        </div>
         <aside class="categories-aside">
           <div class="categories-aside-item categories-aside-item-dropdown">
             <div class="categories-aside-item-title">
@@ -195,12 +290,13 @@
             </div>
             <div class="filter-category filter-category-dropdown">
               <div class="title">
-                <div>Clothing</div><img src="./img/icons/chevron.svg" alt="">
+                <div>Clothing</div>
+                <img src="./img/icons/chevron.svg" alt="" />
               </div>
               <div class="aside-clothes">
                 <div class="cloth active">
                   <span>T-Shirts</span>
-                  <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
+                  <!-- <img src="./img/chevron.svg" class="dropdown-s" alt="" /> -->
                 </div>
                 <div class="cloth">
                   <span> Jackets</span>
@@ -269,258 +365,457 @@
             </div>
 
             <!-- <div class="slidecontainer">
-              <input type="range" min="1" max="100" value="0" class="slider" id="myRange" />
-            </div> -->
-          </div>
-        </aside>
-      </div>
-      <aside class="categories-aside">
-        <div class="categories-aside-item categories-aside-item-dropdown">
-          <div class="categories-aside-item-title">
-            <span>Filter by</span>
-            <img src="./img/icons/chevron.svg" alt="" />
-          </div>
-          <div class="filter-category filter-category-dropdown">
-            <div class="title">
-              <div>Clothing</div><img src="./img/icons/chevron.svg" alt="">
-            </div>
-            <div class="aside-clothes">
-              <div class="cloth active">
-                <span>T-Shirts</span>
-                <!-- <img src="./img/chevron.svg" class="dropdown-s" alt="" /> -->
-              </div>
-              <div class="cloth">
-                <span> Jackets</span>
-                <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
-              </div>
-              <div class="cloth">
-                <span>Knitwear</span>
-                <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
-              </div>
-              <div class="cloth">
-                <span>Sweaters</span>
-                <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
-              </div>
-              <div class="cloth">
-                <span> Shirts</span>
-                <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
-              </div>
-              <div class="cloth">
-                <span> Pants</span>
-                <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
-              </div>
-              <div class="cloth">
-                <span> Denim</span>
-                <!-- <img src="./img/categories-aside/dropdown-s.png" class="dropdown-s" alt="" /> -->
-              </div>
-            </div>
-          </div>
-          <div class="filter-category">
-            <div class="title">Shoes</div>
-          </div>
-          <div class="filter-category">
-            <div class="title">New</div>
-          </div>
-          <div class="filter-category">
-            <div class="title">Accessories</div>
-          </div>
-          <div class="filter-category">
-            <div class="title">Bags</div>
-          </div>
-          <div class="filter-category">
-            <div class="title">Gifts</div>
-          </div>
-          <div class="filter-category">
-            <div class="title red">Sale</div>
-          </div>
-        </div>
-        <div class="categories-aside-item">
-          <div class="categories-aside-item-title">
-            <span>Sort by</span>
-          </div>
-          <div class="filter-category">
-            <div class="title">Newest</div>
-          </div>
-          <div class="filter-category">
-            <div class="title">Oldest</div>
-          </div>
-        </div>
-        <div class="categories-aside-item">
-          <div class="categories-aside-item-title">
-            <span>Price</span>
-          </div>
-          <div class="price-title">Select range</div>
-          <div class="price-range">
-            <input placeholder="From" type="text" class="from-input" />
-            <input placeholder="To" type="text" class="to-input" />
-          </div>
-
-          <!-- <div class="slidecontainer">
             <input type="range" min="1" max="100" value="0" class="slider" id="myRange" />
           </div> -->
-        </div>
-      </aside>
-      <div class="cards">
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/01.png" class="cloth-img"
-              alt="Country side Jacket" /></a>
-          <div class="cloth-collection">Autumn Collection</div>
-          <div class="cloth-name">Country side Jacket</div>
-          <div class="cloth-price">87 KD</div>
-        </div>
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/02.png" class="cloth-img" alt="Garden Suits" /></a>
-          <div class="cloth-collection">Summer Collection</div>
-          <div class="cloth-name">Garden Suits</div>
-          <div class="cloth-price">65 KD</div>
-        </div>
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/03.png" class="cloth-img"
-              alt="British Evening Dress" /></a>
-          <div class="cloth-collection">Spring Collection</div>
-          <div class="cloth-name">British Evening Dress</div>
-          <div class="price-color">
-            <div class="cloth-price">120 KD</div>
-            <div class="cloth-colors check-box">
-              <div class="color check-item haki active"></div>
-              <div class="color check-item purple"></div>
-              <div class="color check-item orange"></div>
+          </div>
+        </aside>
+        <div class="cards">
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/02.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/01.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/03.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/04.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Autumn Collection</div>
+            <div class="cloth-name">Country side Jacket</div>
+            <div class="cloth-price">87 KD</div>
+          </div>
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/01.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/02.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/03.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Summer Collection</div>
+            <div class="cloth-name">Garden Suits</div>
+            <div class="cloth-price">65 KD</div>
+          </div>
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/04.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/05.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/03.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Spring Collection</div>
+            <div class="cloth-name">British Evening Dress</div>
+            <div class="price-color">
+              <div class="cloth-price">120 KD</div>
+              <div class="cloth-colors check-box">
+                <div class="color check-item haki active"></div>
+                <div class="color check-item purple"></div>
+                <div class="color check-item orange"></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/04.png" class="cloth-img"
-              alt="British Evening Dress" /></a>
-          <div class="cloth-collection">Spring Collection</div>
-          <div class="cloth-name">British Evening Dress</div>
-          <div class="price-color">
-            <div class="cloth-price">120 KD</div>
-            <div class="cloth-colors check-box">
-              <div class="bordered color check-item milk active"></div>
-              <div class="bordered color check-item green"></div>
-              <div class="bordered color check-item white"></div>
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/05.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/01.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/03.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Spring Collection</div>
+            <div class="cloth-name">British Evening Dress</div>
+            <div class="price-color">
+              <div class="cloth-price">120 KD</div>
+              <div class="cloth-colors check-box">
+                <div class="bordered color check-item milk active"></div>
+                <div class="bordered color check-item green"></div>
+                <div class="bordered color check-item white"></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/01.png" class="cloth-img"
-              alt="Country side Jacket" /></a>
-          <div class="cloth-collection">Autumn Collection</div>
-          <div class="cloth-name">Country side Jacket</div>
-          <div class="cloth-price">87 KD</div>
-        </div>
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/02.png" class="cloth-img" alt="Garden Suits" /></a>
-          <div class="cloth-collection">Summer Collection</div>
-          <div class="cloth-name">Garden Suits</div>
-          <div class="cloth-price">65 KD</div>
-        </div>
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/03.png" class="cloth-img"
-              alt="British Evening Dress" /></a>
-          <div class="cloth-collection">Spring Collection</div>
-          <div class="cloth-name">British Evening Dress</div>
-          <div class="price-color">
-            <div class="cloth-price">120 KD</div>
-            <div class="cloth-colors check-box">
-              <div class="color check-item haki active"></div>
-              <div class="color check-item purple"></div>
-              <div class="color check-item orange"></div>
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/03.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/01.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/04.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Autumn Collection</div>
+            <div class="cloth-name">Country side Jacket</div>
+            <div class="cloth-price">87 KD</div>
+          </div>
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/04.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/01.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/02.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Summer Collection</div>
+            <div class="cloth-name">Garden Suits</div>
+            <div class="cloth-price">65 KD</div>
+          </div>
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/05.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/01.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/03.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Spring Collection</div>
+            <div class="cloth-name">British Evening Dress</div>
+            <div class="price-color">
+              <div class="cloth-price">120 KD</div>
+              <div class="cloth-colors check-box">
+                <div class="color check-item haki active"></div>
+                <div class="color check-item purple"></div>
+                <div class="color check-item orange"></div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/04.png" class="cloth-img"
-              alt="British Evening Dress" /></a>
-          <div class="cloth-collection">Spring Collection</div>
-          <div class="cloth-name">British Evening Dress</div>
-          <div class="price-color">
-            <div class="cloth-price">120 KD</div>
-            <div class="cloth-colors check-box">
-              <div class="bordered color check-item milk active"></div>
-              <div class="bordered color check-item green"></div>
-              <div class="bordered color check-item white"></div>
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/02.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/01.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/03.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Spring Collection</div>
+            <div class="cloth-name">British Evening Dress</div>
+            <div class="price-color">
+              <div class="cloth-price">120 KD</div>
+              <div class="cloth-colors check-box">
+                <div class="bordered color check-item milk active"></div>
+                <div class="bordered color check-item green"></div>
+                <div class="bordered color check-item white"></div>
+              </div>
             </div>
           </div>
+          <div class="clothes__list-item">
+            <div class="product-slider">
+              <div class="slides">
+                <a class="slide block" href="./product-page.html">
+                  <img src="img/clothes-list/03.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/01.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+                <a class="slide" href="./product-page.html">
+                  <img src="img/clothes-list/02.png" class="cloth-img" alt="Country side Jacket"
+                /></a>
+              </div>
+              <a class="prev hidden">❮</a>
+              <a class="next">❯</a>
+            </div>
+            <div class="product-dots">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+            <div class="cloth-collection">Summer Collection</div>
+            <div class="cloth-name">Garden Suits</div>
+            <div class="cloth-price">65 KD</div>
+          </div>
         </div>
-        <div class="clothes__list-item">
-          <a href="./product-page.html"> <img src="img/clothes-list/02.png" class="cloth-img" alt="Garden Suits" /></a>
-          <div class="cloth-collection">Summer Collection</div>
-          <div class="cloth-name">Garden Suits</div>
-          <div class="cloth-price">65 KD</div>
-        </div>
-
       </div>
     </div>
-  </div>
 
-  <footer class="footer categories-footer">
-    <div class="wrapper">
-      <div class="footer-left">
-        <div class="logo">
-          <img src="./img/logo/logo-m.png" alt="" />
-        </div>
-        <div class="copyright">All Rights Reserved @ zai maison <div class="year"></div>
-        </div>
+    <footer class="footer categories-footer">
+      <div class="wrapper">
+        <div class="footer-left">
+          <div class="logo">
+            <img src="./img/logo/logo-m.png" alt="" />
+          </div>
+          <div class="copyright">
+            All Rights Reserved @ zai maison
+            <div class="year"></div>
+          </div>
 
-        <div class="followus">Follow us on</div>
-        <div class="social">
-          <div class="social-item">
-            <img src="./img/social/01.png" alt="" />
+          <div class="followus">Follow us on</div>
+          <div class="social">
+            <div class="social-item">
+              <img src="./img/social/01.png" alt="" />
+            </div>
+            <div class="social-item">
+              <img src="./img/social/02.png" alt="" />
+            </div>
+            <div class="social-item">
+              <img src="./img/social/03.png" alt="" />
+            </div>
+            <div class="social-item">
+              <img src="./img/social/04.png" alt="" />
+            </div>
+            <div class="social-item">
+              <img src="./img/social/05.png" alt="" />
+            </div>
+            <div class="social-item">
+              <img src="./img/social/06.png" alt="" />
+            </div>
           </div>
-          <div class="social-item">
-            <img src="./img/social/02.png" alt="" />
+        </div>
+        <div class="footer-right">
+          <div class="footer-list">
+            <div class="footer-list-item">
+              <a href="">Contact Us</a>
+            </div>
+            <div class="footer-list-item">
+              <a href="">Terms & Conditions</a>
+            </div>
+            <div class="footer-list-item">
+              <a href="">Privacy Policy</a>
+            </div>
+            <div class="footer-list-item">
+              <a href="">FAQs</a>
+            </div>
+            <div class="footer-list-item">
+              <a href="">Payment & Pricing</a>
+            </div>
           </div>
-          <div class="social-item">
-            <img src="./img/social/03.png" alt="" />
-          </div>
-          <div class="social-item">
-            <img src="./img/social/04.png" alt="" />
-          </div>
-          <div class="social-item">
-            <img src="./img/social/05.png" alt="" />
-          </div>
-          <div class="social-item">
-            <img src="./img/social/06.png" alt="" />
+
+          <div class="footer-list">
+            <div class="footer-list-item">
+              <a href="">Contact Us</a>
+            </div>
+            <div class="footer-list-item">
+              <a href="">Sitemapp</a>
+            </div>
+            <div class="footer-list-item">
+              <a href="">Careers</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="footer-right">
-        <div class="footer-list">
-          <div class="footer-list-item">
-            <a href="">Contact Us</a>
-          </div>
-          <div class="footer-list-item">
-            <a href="">Terms & Conditions</a>
-          </div>
-          <div class="footer-list-item">
-            <a href="">Privacy Policy</a>
-          </div>
-          <div class="footer-list-item">
-            <a href="">FAQs</a>
-          </div>
-          <div class="footer-list-item">
-            <a href="">Payment & Pricing</a>
-          </div>
-        </div>
+    </footer>
+    <style>
+      .next,
+      .prev {
+        border: none;
+        top: 45%;
+      }
+      .slides {
+        width: 100%;
+        height: 100%;
+      }
 
-        <div class="footer-list">
-          <div class="footer-list-item">
-            <a href="">Contact Us</a>
-          </div>
-          <div class="footer-list-item">
-            <a href="">Sitemapp</a>
-          </div>
-          <div class="footer-list-item">
-            <a href="">Careers</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- <script src="./assets/js/jquery.js"></script>
-    <script src="./assets/js/jquery-ui.min.js"></script> -->
-  <script src="./assets/js/main.js"></script>
-</body>
+      .slides img {
+        display: none;
+      }
 
+      .slides .block img {
+        display: block;
+        object-fit: cover;
+      }
+      .product-slider {
+        position: relative;
+        z-index: -1;
+      }
+      .product-dots {
+        text-align: center;
+        margin-top: -50px;
+        margin-bottom: 25px;
+      }
+    </style>
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+      let sliders = document.querySelectorAll('.product-slider');
+      // sliders - список всех элементов с классом class="slider"
+      // sliders[0] — первый элемент, sliders[1] — второй, sliders[i] — i-тый.
+
+      for (let i = 0; i < sliders.length; i++) {
+        // Перебирает все, вызывает функцию для каждого.
+        init_slider(sliders[i]);
+      }
+
+      function init_slider(slider) {
+        function checkSlide(slideLength) {
+          // console.log('slider.length', slideLength);
+          // console.log('index', index);
+          if (i === slideLength - 1) {
+            next.classList.add('hidden');
+            prev.classList.remove('hidden');
+          } else if (i === 0) {
+            prev.classList.add('hidden');
+            next.classList.remove('hidden');
+          } else {
+            prev.classList.remove('hidden');
+            next.classList.remove('hidden');
+          }
+        }
+        function checkDot() {
+          let dots = slider.closest('.clothes__list-item').querySelectorAll('.dot');
+          for (let dot of dots) {
+            dot.classList.remove('active-dot');
+          }
+          dots[i].classList.add('active-dot');
+        }
+        // Значение slider: Очередной sliders[i], переданный при вызове функции.
+
+        let slide = slider.querySelectorAll('.slide');
+        // Вместо document.query... Получается список всех class="slide"
+        // которые находятся где-то внутри текущего элемента slider.
+
+        let next = slider.querySelector('.next');
+        let prev = slider.querySelector('.prev');
+        // Кнопка next внутри этого slider.
+
+        let i = 0;
+        // Номер текущего "открытого" слайда.
+        checkDot();
+        next.addEventListener('click', function () {
+          prev.classList.remove('hidden');
+          slide[i].classList.remove('block');
+          // slide[i] - открытый слайд. Скрываем.
+
+          i = (i + 1) % slide.length; // (*1)
+
+          slide[i].classList.add('block');
+          // slide[i] - следующий слайд. Показываем.
+          checkSlide(slide.length);
+          checkDot();
+        });
+        prev.addEventListener('click', function () {
+          next.classList.remove('hidden');
+          slide[i].classList.remove('block');
+          // slide[i] - открытый слайд. Скрываем.
+
+          i = (i - 1) % slide.length; // (*1)
+
+          slide[i].classList.add('block');
+          // slide[i] - следующий слайд. Показываем.
+          checkSlide(slide.length);
+          checkDot();
+        });
+
+        let dots = slider.closest('.clothes__list-item').querySelectorAll('.dot');
+        for (let j = 0; j < dots.length; j++) {
+          // Перебирает все, вызывает функцию для каждого.
+          dots[j].addEventListener('click', function () {
+            // prev.classList.remove('hidden');
+            slide[i].classList.remove('block');
+            // slide[i] - открытый слайд. Скрываем.
+
+            i = j;
+
+            slide[i].classList.add('block');
+            // slide[i] - следующий слайд. Показываем.
+            checkSlide(slide.length);
+            checkDot();
+          });
+        }
+      }
+      // new Splide("#image-carousel").mount();
+    </script>
+  </body>
 </html>

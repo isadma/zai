@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zai Maison/Product Details</title>
     <link rel="stylesheet" href="assets/style/style.css" />
-    <!-- <link rel="stylesheet" href="assets/style/jquery-ui.min.css"> -->
+    <link rel="stylesheet" href="assets/splide/dist/css/splide.min.css" />
   </head>
 
   <body>
@@ -211,13 +211,34 @@
             dots[slideIndex - 1].className += ' active';
           }
         </script>
-        <div class="check-box choose-dress choose-dress-scroll-y">
+
+        <!-- <div class="check-box choose-dress choose-dress-scroll-y">
           <img src="./img/clothes-list/01.png" class="dress check-item active" alt="" />
           <img class="dress check-item" src="./img/clothes-list/02.png" alt="" />
           <img class="dress check-item" src="./img/clothes-list/04.png" alt="" />
           <img class="dress check-item" src="./img/clothes-list/03.png" alt="" />
+          <img class="dress check-item" src="./img/clothes-list/02.png" alt="" />
+          <img class="dress check-item" src="./img/clothes-list/04.png" alt="" />
+          <img class="dress check-item" src="./img/clothes-list/03.png" alt="" />
         </div>
-        <div class="chosen-product"></div>
+
+        <div class="chosen-product"></div> -->
+
+        <div id="splide" class="splide">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <li class="splide__slide">
+                <img src="./img/clothes-list/01.png" alt="" />
+              </li>
+              <li class="splide__slide">
+                <img src="./img/clothes-list/02.png" alt="" />
+              </li>
+              <li class="splide__slide">
+                <img src="./img/clothes-list/04.png" alt="" />
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="product-right">
         <div class="cloth-collection"></div>
@@ -348,6 +369,29 @@
       </div>
     </footer>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/splide/dist/js/splide.min.js"></script>
     <script src="./assets/js/main.js"></script>
+    <script>
+      // document.addEventListener('DOMContentLoaded', function () {
+      //   new Splide('#splide', {
+      //     type: 'loop',
+      //     perPage: 1,
+      //     focus: 'center',
+      //     autoplay: true,
+      //     interval: 8000,
+      //     flickMaxPages: 3,
+      //     updateOnMove: true,
+      //     pagination: false,
+      //     padding: '10%',
+      //     throttle: 300,
+      //     breakpoints: {
+      //       1440: {
+      //         perPage: 1,
+      //         padding: '30%',
+      //       },
+      //     },
+      //   }).mount();
+      // });
+    </script>
   </body>
 </html>
