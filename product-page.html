@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zai Maison/Product Details</title>
     <link rel="stylesheet" href="assets/style/style.css" />
-    <link rel="stylesheet" href="assets/splide/dist/css/splide.min.css" />
+    <!-- <link rel="stylesheet" href="assets/splide/dist/css/splide.min.css" /> -->
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css" />
   </head>
 
   <body>
@@ -224,7 +226,7 @@
 
         <div class="chosen-product"></div> -->
 
-        <div id="splide" class="splide">
+        <!-- <div id="splide" class="splide">
           <div class="splide__track">
             <ul class="splide__list">
               <li class="splide__slide">
@@ -237,6 +239,22 @@
                 <img src="./img/clothes-list/04.png" alt="" />
               </li>
             </ul>
+          </div>
+        </div> -->
+
+        <div class="slider-for">
+          <img src="./img/clothes-list/01.png" alt="" />
+          <img src="./img/clothes-list/02.png" alt="" />
+          <img src="./img/clothes-list/04.png" alt="" />
+          <img src="./img/clothes-list/03.png" alt="" />
+        </div>
+
+        <div class="slider-nav-container">
+          <div class="slider-nav">
+            <img src="./img/clothes-list/01.png" alt="" />
+            <img src="./img/clothes-list/02.png" alt="" />
+            <img src="./img/clothes-list/04.png" alt="" />
+            <img src="./img/clothes-list/03.png" alt="" />
           </div>
         </div>
       </div>
@@ -369,29 +387,83 @@
       </div>
     </footer>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="./assets/splide/dist/js/splide.min.js"></script>
+    <!-- <script src="./assets/splide/dist/js/splide.min.js"></script> -->
     <script src="./assets/js/main.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="assets/slick/slick.min.js"></script>
+    <style>
+      .slider-nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .slider-nav {
+        width: 70%;
+        position: relative;
+        display: block;
+        /* background-color: red; */
+      }
+      .slider-for {
+        width: 100%;
+        height: 60%;
+        margin-bottom: 30px;
+      }
+      /* .slider-nav * {
+        height: 100%;
+      } */
+      .slider-for * {
+        height: 100%;
+      }
+      .slider-for img {
+        object-fit: contain;
+      }
+      .slider-nav img {
+        object-fit: contain;
+        height: 150px;
+      }
+      .slick-prev {
+        z-index: 1;
+        left: 15px;
+      }
+      .slick-next {
+        z-index: 1;
+        right: 15px;
+      }
+
+      @media (min-width: 2000px) {
+        .slider-nav {
+          width: 45% !important;
+        }
+        .slider-for {
+          height: 40%;
+        }
+        .slider-nav img {
+          object-fit: contain;
+          height: 150px;
+        }
+      }
+    </style>
     <script>
-      // document.addEventListener('DOMContentLoaded', function () {
-      //   new Splide('#splide', {
-      //     type: 'loop',
-      //     perPage: 1,
-      //     focus: 'center',
-      //     autoplay: true,
-      //     interval: 8000,
-      //     flickMaxPages: 3,
-      //     updateOnMove: true,
-      //     pagination: false,
-      //     padding: '10%',
-      //     throttle: 300,
-      //     breakpoints: {
-      //       1440: {
-      //         perPage: 1,
-      //         padding: '30%',
-      //       },
-      //     },
-      //   }).mount();
-      // });
+      $(document).ready(function () {
+        $('.slider-for').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+          fade: true,
+          asNavFor: '.slider-nav',
+          // customPaging: '40px',
+        });
+        $('.slider-nav').slick({
+          width: '',
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          asNavFor: '.slider-for',
+          // dots: true,
+          centerMode: true,
+          focusOnSelect: true,
+        });
+      });
     </script>
   </body>
 </html>

@@ -1015,36 +1015,36 @@ function onMouseOutColors(tooltip_id) {
   tooltip.style.visibility = 'hidden';
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  new Splide('#splide', {
-    type: 'loop',
-    perPage: 1,
-    focus: 'center',
-    autoplay: true,
-    interval: 8000,
-    // flickMaxPages: 3,
-    updateOnMove: true,
-    pagination: false,
-    gap: '30%',
-    // padding: '20%',
-    throttle: 300,
-    breakpoints: {
-      1800: {
-        padding: '18%',
-        // gap: '30%',
-      },
-      1600: {
-        padding: '17%',
-        // gap: '30%',
-      },
-      1440: {
-        padding: '15%',
-        // gap: '30%',
-      },
-      1300: {
-        padding: '11%',
-        // gap: '30%',
-      },
-    },
-  }).mount();
-});
+// document.addEventListener('DOMContentLoaded', function () {
+//   new Splide('#splide', {
+//     type: 'loop',
+//     perPage: 1,
+//     focus: 'center',
+//     autoplay: true,
+//     interval: 8000,
+//     // flickMaxPages: 3,
+//     updateOnMove: true,
+//     pagination: false,
+//     gap: '30%',
+//     // padding: '20%',
+//     throttle: 300,
+//     breakpoints: {
+//       1800: {
+//         padding: '18%',
+//         // gap: '30%',
+//       },
+//       1600: {
+//         padding: '17%',
+//         // gap: '30%',
+//       },
+//       1440: {
+//         padding: '15%',
+//         // gap: '30%',
+//       },
+//       1300: {
+//         padding: '11%',
+//         // gap: '30%',
+//       },
+//     },
+//   }).mount();
+// });
